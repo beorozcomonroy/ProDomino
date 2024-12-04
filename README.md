@@ -2,6 +2,15 @@
 
 <img src="img/ProDomino.png" alt="drawing" width="300"/>  
 
+This work is licensed under a
+[Creative Commons Attribution-NonCommercial 4.0 International License][cc-by-nc].
+
+[![CC BY-NC 4.0][cc-by-nc-image]][cc-by-nc]
+
+[cc-by-nc]: https://creativecommons.org/licenses/by-nc/4.0/
+
+[cc-by-nc-image]: https://licensebuttons.net/l/by-nc/4.0/88x31.png
+
 ## Abstract 
 
 Domain insertion engineering is a powerful approach to juxtapose otherwise separate biological functions, resulting in proteins with new-to-nature activities. A prominent example are switchable protein variants, created by receptor domain insertion into effector proteins. Identifying suitable, allosteric sites for domain insertion, however, typically requires extensive screening and optimization.
