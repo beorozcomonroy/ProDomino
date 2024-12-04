@@ -1,11 +1,12 @@
-# ProDomino: *In silico* prediction of protein domain insertion sites to engineer switchable proteins
+# ProDomino 
+# Rational engineering of allosteric protein switches by *in silico* prediction of domain insertion sites
 
 <img src="img/ProDomino.png" alt="drawing" width="300"/>  
 
 ## Abstract 
 
-Domain insertion engineering is a powerful approach to juxtapose otherwise separate biological functions, resulting in proteins with new-to-nature activities. A prominent example are switchable proteins, created by inserting receptor domains into effector proteins. Identifying suitable, allosteric sites for domain insertion, however, typically requires extensive screening and optimization, limiting the utility of this approach.
-We present ProDomino, a novel machine learning pipeline for domain recombination, trained on a synthetic protein sequence dataset derived from naturally occurring intradomain insertions. We show that ProDomino can robustly identify domain insertion sites in proteins of biotechnological relevance, which we experimentally validated in E. coli and human cells. Finally, employing light- and chemically regulated receptor domains as inserts, we demonstrate the rapid, model-guided creation of potent, single-component opto- and chemogenetic protein switches, including CRISPR-Cas9 and Cas12a switches for inducible genome editing in human cells. Our work simplifies domain insertion engineering and substantially accelerates the design of customized allosteric proteins.
+Domain insertion engineering is a powerful approach to juxtapose otherwise separate biological functions, resulting in proteins with new-to-nature activities. A prominent example are switchable protein variants, created by receptor domain insertion into effector proteins. Identifying suitable, allosteric sites for domain insertion, however, typically requires extensive screening and optimization.
+We present ProDomino, a novel machine learning pipeline to rationalize domain recombination, trained on a semi-synthetic protein sequence dataset derived from naturally occurring intradomain insertion events. ProDomino robustly identifies domain insertion sites in proteins of biotechnological relevance, which we experimentally validated in E. coli and human cells. Finally, we employed light- and chemically regulated receptor domains as inserts and demonstrate the rapid, model-guided creation of potent, single-component opto- and chemogenetic protein switches. These include novel CRISPR-Cas9 and -Cas12a variants for inducible genome engineering in human cells. Our work enables one-shot domain insertion engineering and substantially accelerates the design of customized allosteric proteins.
 
 
 ---
