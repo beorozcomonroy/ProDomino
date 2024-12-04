@@ -1,5 +1,4 @@
-# ProDomino 
-# Rational engineering of allosteric protein switches by *in silico* prediction of domain insertion sites
+# ProDomino: Rational engineering of allosteric protein switches by *in silico* prediction of domain insertion sites
 
 <img src="img/ProDomino.png" alt="drawing" width="300"/>  
 
