@@ -20,7 +20,7 @@ We present ProDomino, a novel machine learning pipeline to rationalize domain re
 ---
 
 ProDomino enables the prediction of domain insertion sites  The model returns a per position probability score for insertion site tolerance.
-For further details, please refer to our manuscript: LINK!!!!!
+For further details, please refer to our manuscript: https://www.biorxiv.org/content/10.1101/2024.12.04.626757v1
 
 ## Requirements
 
