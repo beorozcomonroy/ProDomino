@@ -24,6 +24,7 @@ class Embedder:
         torch.distributed.init_process_group(backend="nccl", init_method=url, world_size=1, rank=0)
         model_data, regression_data = esm.pretrained._download_model_and_regression_data(model_name)
         # initialize the model with FSDP wrapper
+        self.num_layers=num_layers
         fsdp_params = dict(
             mixed_precision=True,
             flatten_parameters=True,
@@ -50,8 +51,8 @@ class Embedder:
         batch_labels, batch_strs, batch_tokens = self.batch_converter([(name,sequence)])
         batch_tokens = batch_tokens.cuda()
         with torch.no_grad():
-            results = self.model(batch_tokens, repr_layers=[num_layers], return_contacts=True)
-        token_representations = results["representations"][num_layers][0, 1:-1]
+            results = self.model(batch_tokens, repr_layers=[self.num_layers], return_contacts=True)
+        token_representations = results["representations"][self.num_layers][0, 1:-1]
         return token_representations.cpu().numpy().squeeze().astype(np.float32)
 
     def batch_predict_embedding(self,processing_list):
@@ -63,7 +64,7 @@ class Embedder:
             batch_labels, batch_strs, batch_tokens = self.batch_converter(data)
             batch_tokens = batch_tokens.cuda()
             with torch.no_grad():
-                results = self.model(batch_tokens, repr_layers=[3num_layers], return_contacts=True)
-            token_representations = results["representations"][num_layers][0, 1:-1].cpu().numpy().squeeze().astype(np.float32)
+                results = self.model(batch_tokens, repr_layers=[self.num_layers], return_contacts=True)
+            token_representations = results["representations"][self.num_layers][0, 1:-1].cpu().numpy().squeeze().astype(np.float32)
             proceesed_results[batch_labels] = token_representations
         return proceesed_results
