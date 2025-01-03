@@ -55,10 +55,11 @@ class InsertionSitePrediction:
             struct = par.get_structure('', pdb_path)
             self.pdb = struct
 
-
-    def show_trace(self,show_top_hits=False,linebreak=300,n_top_hits=10):
+    
+    def show_trace(self,show_top_hits=False,linebreak=300,n_top_hits=10, save_path=None):
         if self.sequence is not None:
-            rows = (len(self.sequence) // linebreak) + 1
+          len_seq= len(self.sequence)
+          rows = (len(self.sequence) // linebreak) + 1
         else:
             rows = (len(self.predicted_sites) // linebreak) + 1
         fig, axs = plt.subplots(rows, 1, figsize=(11, 1 * rows), dpi=300)
@@ -71,18 +72,29 @@ class InsertionSitePrediction:
         for nr, pos in enumerate(range(0, len(self.predicted_sites), linebreak)):
             sns.lineplot(self.predicted_sites[pos:pos + linebreak], color='black', ax=axs[nr], )
             axs[nr].set_ylim(0, 1, )
-            axs[nr].set_xlim(0, linebreak)
+            axs[nr].set_xlim(0, min(linebreak,len_seq))
+
 
             if self.sequence is not None:
+                # print("maiale")
                 seq_subset = list(self.sequence)[pos:pos + linebreak]
                 if len(seq_subset) < linebreak:
-                    seq_subset.extend([' ' for i in range(linebreak - len(seq_subset))])
-                axs[nr].set_xticks(range(0, linebreak), seq_subset, fontsize=5)
-                sec = axs[nr].secondary_xaxis(location=0)
-                sec.set_xticks([i for i in range(0,linebreak,10)], labels=[f'\n{i + (nr*linebreak)}' for i in range(1,linebreak+1,10)])
+                    # seq_subset.extend([' ' for i in range(linebreak - len(seq_subset))])
+                    axs[nr].set_xticks(range(0, len_seq), seq_subset, fontsize=5)
+                    sec = axs[nr].secondary_xaxis(location=0)
+                    sec.set_xticks([i for i in range(0, (len_seq // 10) *10 ,10)], labels=[f'\n{i}' for i in range(1,(len_seq // 10) *10 +1,10)])
+                else:
+                    axs[nr].set_xticks(range(0, linebreak), seq_subset, fontsize=5)
+                    sec = axs[nr].secondary_xaxis(location=0)
+                    sec.set_xticks([i for i in range(0,linebreak,10)], labels=[f'\n{i + (nr*linebreak)}' for i in range(1,linebreak+1,10)])
+
 
         fig.suptitle(f'ProDomino Prediction')
         fig.tight_layout()
+        # plt.show()
+        print("Save path")
+        print(save_path)
+        plt.savefig(save_path)
         plt.show()
 
     def get_top_hits(self,n=10):
