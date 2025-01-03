@@ -7,10 +7,6 @@ setup(
     name="ProDomino",  # Your package name
     version="0.1.0",  # Initial release version
     author="Niopek Lab",  # Your author name
-    author_email="your.email@example.com",  # Optional: Replace with your email
-    description="A short description of your package",  # Add a brief description
-    long_description=long_description,  # Long description from README
-    long_description_content_type="text/markdown",  # Use markdown format for the long description
     url="https://github.com/Niopek-Lab/ProDomino",  # URL of your package's repository or website
     packages=find_packages(),  # Automatically find and include all packages
     classifiers=[
