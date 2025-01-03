@@ -1,2 +1,3 @@
-from .inference.inference import ProDomino,Embedder
+from .inference.embedder import Embedder
+from .inferece.prodomio import PD
 from . import utils
